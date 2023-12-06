@@ -1,14 +1,8 @@
 //Variables du projet//
 
 const arrowLeft = document.querySelector(".arrow_left")
-	arrowLeft.addEventListener("click",()=>{
-		console.log("clic gauche")
-	})
 
-const arrowRight = document.querySelector(".arrow_right")
-	arrowRight.addEventListener("click",()=>{
-		console.log("clic droit")
-	})
+const arrowRight = document.querySelector(".arrow_right")	
 
 const slides = [
 	{
@@ -32,6 +26,9 @@ console.log(slides)
 
 const dots=document.querySelector(".dots")
 let index=0
+const image = document.querySelector(".banner-img")
+const tagLine = document.querySelector("#banner p")
+
 
 //Ajout des bullets points//
 function displayDots() {
@@ -45,3 +42,29 @@ function displayDots() {
 	}
 }
 displayDots()
+
+//Modification du slide au clic sur le bouton droit//
+function clickArrowRight() {
+	arrowRight.addEventListener("click",()=>{
+		index++
+		if (index > slides.length -1){
+			index=0
+		}
+		image.src = slides[index].image;
+		tagLine.innerHTML = slides[index].tagLine;	
+	})
+}
+clickArrowRight()
+
+//Modification du slide au clic sur le bouton gauche//
+function clickArrowLeft() {
+	arrowLeft.addEventListener("click",()=>{
+		index--
+		if (index < 0){
+			index=slides.length -1
+		}
+		image.src = slides[index].image;
+		tagLine.innerHTML = slides[index].tagLine;	
+	})
+}
+clickArrowLeft()
