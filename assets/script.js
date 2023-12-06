@@ -39,6 +39,9 @@ function displayDots() {
 	const dot = document.createElement ("div")
 		dot.classList.add("dot")
 		dots.appendChild(dot)
+		if (i===index){
+			dot.classList.add("dot_selected")
+		}
 	}
 }
 displayDots()
