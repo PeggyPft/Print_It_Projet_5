@@ -46,12 +46,15 @@ displayDots()
 //Modification du slide au clic sur le bouton droit//
 function clickArrowRight() {
 	arrowRight.addEventListener("click",()=>{
+		const changeDots = document.querySelectorAll(".dots .dot")
+		changeDots[index].classList.remove("dot_selected")
 		index++
 		if (index > slides.length -1){
 			index=0
 		}
 		image.src = slides[index].image;
 		tagLine.innerHTML = slides[index].tagLine;	
+		changeDots[index].classList.add("dot_selected")
 	})
 }
 clickArrowRight()
@@ -59,12 +62,15 @@ clickArrowRight()
 //Modification du slide au clic sur le bouton gauche//
 function clickArrowLeft() {
 	arrowLeft.addEventListener("click",()=>{
+		const changeDots = document.querySelectorAll(".dots .dot")
+		changeDots[index].classList.remove("dot_selected")
 		index--
 		if (index < 0){
 			index=slides.length -1
 		}
 		image.src = slides[index].image;
 		tagLine.innerHTML = slides[index].tagLine;	
+		changeDots[index].classList.add("dot_selected")
 	})
 }
 clickArrowLeft()
